@@ -38,8 +38,9 @@ def install():
 
     run([
         "distrobox", "create",
-        "--image", IMAGE,
         "--name", CONTAINER_NAME,
+        "--image", IMAGE,
+        "--pull",
         "--root",
         "--init",
         "--unshare-netns",
@@ -50,14 +51,13 @@ def install():
             "useradd -m -u $(id -u) -g $(id -g) -s /bin/bash $(id -un) || true"
         ),
         "--init-hooks",
-        "usermod -aG libvirt $USER || true",
+        (
+            "usermod -aG libvirt $USER || true"
+            "distrobox-export --app virt-manager"
+        ),
     ], env=env)
 
-    # Export AFTER container creation (reliable)
-    run([
-        "distrobox", "enter", "--root", CONTAINER_NAME,
-        "--", "distrobox-export", "--app", "virt-manager",
-    ], env=env)
+    print("Please run `virtualization enter` to initialize and run")
 
 
 def upgrade():
