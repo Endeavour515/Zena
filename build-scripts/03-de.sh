@@ -20,7 +20,8 @@ packages=(
   quickshell
 
   adw-gtk3-theme
-  qt6ct
+  papirus-icon-theme
+
   xwayland-satellite
 
   cava
