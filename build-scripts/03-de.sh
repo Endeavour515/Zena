@@ -42,4 +42,6 @@ packages=(
 )
 # dnf5 -y remove "${packages[@]}"
 
+dconf update
+
 echo "::endgroup::"
