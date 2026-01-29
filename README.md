@@ -286,10 +286,7 @@ We welcome contributions.
 
 ## Roadmap
 
-Short-to-mid term items:
-
-* Default Flatpaks (optional, toggle via initial setup)
-* Improvements to the TUI `zena-setup`
+Check the project kanban here on the repo projects tab.
 
 ## License
 
